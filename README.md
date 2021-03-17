@@ -1,7 +1,7 @@
 # Meli Interview
 
 ## SOLID
-  1. [Single Responsiblity Principle (Princípio da responsabilidade única)](#Single Responsiblity Principle (Princípio da responsabilidade única))
+  1. [Single Responsiblity Principle (Princípio da responsabilidade única)](#single-responsiblity-principle-princípio-da-responsabilidade-única)
   2. Open-Closed Principle (Princípio Aberto-Fechado)
   3. Liskov Substitution Principle (Princípio da substituição de Liskov)
   4. Interface Segregation Principle (Princípio da Segregação da Interface)
