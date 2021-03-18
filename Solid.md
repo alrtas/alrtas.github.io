@@ -299,3 +299,67 @@ class Pinguim implements Aves
 }
 ```
 No exemplo acima, retiramos o método setAltitude() da interface Aves e adicionamos em uma interface derivada AvesQueVoam. Isso nos permitiu isolar os comportamentos das aves de maneira correta dentro do jogo, respeitando o princípio da segregação das interfaces.
+
+
+# Dependency Inversion Principle (Princípio da inversão da dependência)
+1. Módulos de alto nível não devem depender de módulos de baixo nível. Ambos devem depender da abstração.
+2. Abstrações não devem depender de detalhes. Detalhes devem depender de abstrações.
+3. Programe para uma interface e não para uma implementação.
+
+```
+##### SPAGHETTI CODE
+<?php
+
+use MySQLConnection;
+
+class PasswordReminder
+{
+    private $dbConnection;
+    
+    public function __construct()
+    {       
+        $this->dbConnection = new MySQLConnection();           
+    }
+    
+    // Faz alguma coisa
+}
+```
+
+De acordo com a definição do DIP, um módulo de alto nível não deve depender de módulos de baixo nível, ambos devem depender da abstração. Então, a primeira coisa que precisamos fazer é identificar no nosso código qual é o módulo de alto nível e qual é o módulo de baixo nível. Módulo de alto nível é um módulo que depende de outros módulos.
+
+```
+<?php
+
+interface DBConnectionInterface
+{
+    public function connect();
+}
+
+
+class MySQLConnection implements DBConnectionInterface
+{
+    public function connect()
+    {
+        // ...
+    }
+}
+
+class OracleConnection implements DBConnectionInterface
+{
+    public function connect()
+    {
+        // ...
+    }
+}
+
+class PasswordReminder
+{
+    private $dbConnection;
+
+    public function __construct(DBConnectionInterface $dbConnection) {
+        $this->dbConnection = $dbConnection;
+    }
+  
+    // Faz alguma coisa
+}
+```
