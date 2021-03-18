@@ -6,7 +6,7 @@
 
 Esses principios ajudam a escrever códigos mais eficiens, separando responsabilidades, diminuindo acoplamentos, facilitando na refatoração do codigo e estimulando o reaproveitamento.
 
-### Single Responsiblity Principle (Princípio da responsabilidade única)
+# Single Responsiblity Principle (Princípio da responsabilidade única)
 **Uma classe deve ter um, e somente um, motivo para mudar**
 
 Esse principio declara que uma classe deve ser especializada em um único assunto e apenas possuir uma responsabilidade, ou seja, a classe deve ter uma única tarefa ou ação para executar.
@@ -68,3 +68,5 @@ class OrderViewer
 }
 
 ```
+Considero o SRP um dos princípios mais importantes, ele acaba sendo a base para outros princípios e padrões porque aborda temas como acoplamento e coesão, características que todo código orientado a objetos deveria ter.
+Aplicando esse princípio, automaticamente você estará escrevendo um código mais limpo e de fácil manutenção! Se você tem interesse nesse assunto, recomendo a leitura das boas práticas para escrever códigos impecáveis.
