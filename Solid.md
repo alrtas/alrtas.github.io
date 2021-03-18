@@ -6,7 +6,7 @@
      - Uma classe derivada deve ser substituível por sua classe base
   4. [Interface Segregation Principle (Princípio da Segregação da Interface)](#interface-segregation-principle-princípio-da-segregação-da-interface)
      - Uma classe não deve ser forçada a implementar interfaces e métodos que não irão utilizar.
-  5. Dependency Inversion Principle (Princípio da inversão da dependência)
+  5. [Dependency Inversion Principle (Princípio da inversão da dependência)](#dependency-inversion-principle-princípio-da-inversão-da-dependência)
      - Dependa de abstrações e não de implementações.
 
 Esses principios ajudam a escrever códigos mais eficiens, separando responsabilidades, diminuindo acoplamentos, facilitando na refatoração do codigo e estimulando o reaproveitamento.
