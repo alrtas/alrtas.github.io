@@ -1,5 +1,5 @@
 1. [Single Responsiblity Principle (Princípio da responsabilidade única)](#single-responsiblity-principle-princípio-da-responsabilidade-única)
-  2. Open-Closed Principle (Princípio Aberto-Fechado)
+  2. [Open-Closed Principle (Princípio Aberto-Fechado)](#open-closed-principle-princ%C3%ADpio-aberto-fechado)
   3. Liskov Substitution Principle (Princípio da substituição de Liskov)
   4. Interface Segregation Principle (Princípio da Segregação da Interface)
   5. Dependency Inversion Principle (Princípio da inversão da dependência)
