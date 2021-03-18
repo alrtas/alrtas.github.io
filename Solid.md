@@ -70,3 +70,84 @@ class OrderViewer
 ```
 Considero o SRP um dos princípios mais importantes, ele acaba sendo a base para outros princípios e padrões porque aborda temas como acoplamento e coesão, características que todo código orientado a objetos deveria ter.
 Aplicando esse princípio, automaticamente você estará escrevendo um código mais limpo e de fácil manutenção! Se você tem interesse nesse assunto, recomendo a leitura das boas práticas para escrever códigos impecáveis.
+
+
+
+# Open-Closed Principle (Princípio Aberto-Fechado)
+
+**Objetos ou entidades devem estar abertos para extensão, mas fechados para modificação**, ou seja, quando novos comportamentos e recursos precisam ser adicionados no software, devemos estender e não alterar o código fonte original.<br><br>
+Exemplo prático do OCP:
+Em um sistema hipotético de RH, temos duas classes que representam os contratos de trabalhos dos funcionários de uma pequena empresa, contratados e estágiários. Além de uma classe para processar a folha de pagamento.
+
+```
+<?php
+
+class ContratoClt
+{
+    public function salario()
+    {
+        //...
+    }
+}
+
+class Estagio
+{
+    public function bolsaAuxilio()
+    {
+        //...
+    }
+}
+
+class FolhaDePagamento
+{
+    protected $saldo;
+    
+    public function calcular($funcionario)
+    {
+        if ( $funcionario instanceof ContratoClt ) {
+            $this->saldo = $funcionario->salario();
+        } else if ( $funcionario instanceof Estagio) {
+            $this->saldo = $funcionario->bolsaAuxilio();
+        }
+    }
+}
+```
+<br><br>
+**Aplicando OCP na prática**
+Voltando para o nosso exemplo, podemos concluir que o contexto que estamos lidando é a remuneração dos contratos de trabalho, aplicando as premissas de se isolar o comportamento extensível atrás de uma interface, podemos criar uma interface com o nome Remuneravel contendo o método remuneracao(), e fazer com que nossas classes de contrato de trabalho implementem essa interface. Além disso, iremos colocar as regras de calculo de remuneração para suas respectivas classes, dentro do método remuneracao(), fazendo com que a classe FolhaDePagamento dependa somente da interface Remuneravel que iremos criar.
+
+```<?php
+
+interface Remuneravel
+{
+    public function remuneracao();
+}
+
+class ContratoClt implements Remuneravel
+{
+    public function remuneracao()
+    {
+        //...
+    }
+}
+
+class Estagio implements Remuneravel
+{
+    public function remuneracao()
+    {
+        //...
+    }
+}
+
+class FolhaDePagamento
+{
+    protected $saldo;
+    
+    public function calcular(Remuneravel $funcionario)
+    {
+        $this->saldo = $funcionario->remuneracao();
+    }
+}
+```
+
+Open-Closed Principle também é base para o padrão de projeto Strategy — Falerei desse padrão em um próximo artigo. Particularmente esse é o princípio que eu mais admiro, a sua principal vantagem é a facilidade na adição de novos requisitos, diminuindo as chances de introduzir novos bugs — ou bugs de menor expressão — pois o novo comportamento fica isolado, e o que estava funcionando provavelmente continuara funcionando.
