@@ -5,10 +5,10 @@ Na Programação Orientada a Objetos, você tenta aproximar a vida real da progr
 
 ## Os quatro pilares
 Na programação orientada a objetos, temos quatro pilares muito importantes a serem seguidos em seus projetos, facilitando a manutenção, mais protegido e com um código mais otimizado. Os quatro pilares são:
- - [Abstração]()
- - [Encapsulamento]()
- - [Herança]()
- - [Polimorfismo]()
+ - [Abstração](#abstração)
+ - [Encapsulamento](#encapsulamento)
+ - [Herança](#herança)
+ - [Polimorfismo](#polimorfismo)
 
 ### Abstração
 Algumas pessoas não o consideram um dos pilares, mas talvez seja o mais importante. Com isso, você a usa para abstrair as coisas relevantes do mundo real para o código e, se você fizer isso errado, poderá adicionar muita informação ou ficar confuso. É por isso que é extremamente importante, mas lembre-se sempre: se não fizer sentido no mundo real, não fará sentido no código.
