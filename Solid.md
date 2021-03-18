@@ -1,7 +1,11 @@
-1. [Single Responsiblity Principle (Princípio da responsabilidade única)](#single-responsiblity-principle-princípio-da-responsabilidade-única)
+  1. [Single Responsiblity Principle (Princípio da responsabilidade única)](#single-responsiblity-principle-princípio-da-responsabilidade-única)
+     - Uma classe deve ter um, e somente um, motivo para mudar
   2. [Open-Closed Principle (Princípio Aberto-Fechado)](#open-closed-principle-princ%C3%ADpio-aberto-fechado)
-  3. Liskov Substitution Principle (Princípio da substituição de Liskov)
+     - Objetos ou entidades devem estar abertos para extensão, mas fechados para modificação
+  3. [Liskov Substitution Principle (Princípio da substituição de Liskov)](#liskov-substitution-principle-princípio-da-substituição-de-liskov)
+     - Uma classe derivada deve ser substituível por sua classe base
   4. Interface Segregation Principle (Princípio da Segregação da Interface)
+     - Uma classe não deve ser forçada a implementar interfaces e métodos que não irão utilizar.
   5. Dependency Inversion Principle (Princípio da inversão da dependência)
 
 Esses principios ajudam a escrever códigos mais eficiens, separando responsabilidades, diminuindo acoplamentos, facilitando na refatoração do codigo e estimulando o reaproveitamento.
@@ -159,7 +163,7 @@ Open-Closed Principle também é base para o padrão de projeto Strategy a sua p
 
 # Liskov Substitution Principle (Princípio da substituição de Liskov)
 
-*** Uma classe derivada deve ser substituível por sua classe base.****
+***Uma classe derivada deve ser substituível por sua classe base.****
 
 se S é um subtipo de T, então os objetos do tipo T, em um programa, podem ser substituídos pelos objetos de tipo S sem que seja necessário alterar as propriedades deste programa. 
 ```
@@ -192,3 +196,5 @@ function imprimeNome(A $objeto)
 imprimeNome($objeto1); // Meu nome é A
 imprimeNome($objeto2); // Meu nome é B
 ```
+# Interface Segregation Principle (Princípio da Segregação da Interface)
+***Uma classe não deve ser forçada a implementar interfaces e métodos que não irão utilizar.***
