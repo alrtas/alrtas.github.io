@@ -11,6 +11,7 @@
 
 Esses principios ajudam a escrever códigos mais eficiens, separando responsabilidades, diminuindo acoplamentos, facilitando na refatoração do codigo e estimulando o reaproveitamento.
 
+[Aritgo original](https://medium.com/desenvolvendo-com-paixao/o-que-%C3%A9-solid-o-guia-completo-para-voc%C3%AA-entender-os-5-princ%C3%ADpios-da-poo-2b937b3fc530)
 # Single Responsiblity Principle (Princípio da responsabilidade única)
 **Uma classe deve ter um, e somente um, motivo para mudar**
 
