@@ -1,4 +1,12 @@
-# Deploy
+# CI/CD
+
+- CI (Integração continua)
+   - É um processo de automação para desenvolvedores. Uma CI bem-sucedida é quando novas mudanças no código de uma aplicação são desenvolvidas, testadas e consolidadas regularmente em um repositório compartilhado. É a solução ideal para evitar conflitos entre ramificações quando muitas aplicações são desenvolvidas ao mesmo tempo. 
+   - Build -> Test -> Merge
+- CD (Entrega continua)
+  - Geralmente, a entrega contínua representa as mudanças feitas pelo desenvolvedor em uma aplicação, que são automaticamente testadas contra bugs e carregadas em um repositório 
+
+# Deploy (Continuous Deployment)
 Para aplicações 0 Down Time apresento duas abordagens
 
 - Blue-Green
