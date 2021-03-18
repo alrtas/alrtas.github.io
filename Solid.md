@@ -4,9 +4,10 @@
      - Objetos ou entidades devem estar abertos para extensão, mas fechados para modificação
   3. [Liskov Substitution Principle (Princípio da substituição de Liskov)](#liskov-substitution-principle-princípio-da-substituição-de-liskov)
      - Uma classe derivada deve ser substituível por sua classe base
-  4. Interface Segregation Principle (Princípio da Segregação da Interface)
+  4. [Interface Segregation Principle (Princípio da Segregação da Interface)](#interface-segregation-principle-princípio-da-segregação-da-interface)
      - Uma classe não deve ser forçada a implementar interfaces e métodos que não irão utilizar.
   5. Dependency Inversion Principle (Princípio da inversão da dependência)
+     - Dependa de abstrações e não de implementações.
 
 Esses principios ajudam a escrever códigos mais eficiens, separando responsabilidades, diminuindo acoplamentos, facilitando na refatoração do codigo e estimulando o reaproveitamento.
 
@@ -197,4 +198,103 @@ imprimeNome($objeto1); // Meu nome é A
 imprimeNome($objeto2); // Meu nome é B
 ```
 # Interface Segregation Principle (Princípio da Segregação da Interface)
-***Uma classe não deve ser forçada a implementar interfaces e métodos que não irão utilizar.***
+***Uma classe não deve ser forçada a implementar interfaces e métodos que não irão utilizar.***<br><br>
+
+Em um cenário fictício para criação de um game de animais, teremos algumas aves que serão tratadas como personagens dentro do jogo. Sendo assim, criaremos uma interface Aves para abstrair o comportamento desses animais, depois faremos que nossas classes implementem essa interface, veja:
+
+```
+<?php
+
+interface Aves
+{
+    public function setLocalizacao($longitude, $latitude);
+    public function setAltitude($altitude);
+    public function renderizar();
+}
+
+class Papagaio implements Aves
+{
+    public function setLocalizacao($longitude, $latitude)
+    {
+        //Faz alguma coisa
+    }
+    
+    public function setAltitude($altitude)
+    {
+        //Faz alguma coisa   
+    }
+    
+    public function renderizar()
+    {
+        //Faz alguma coisa
+    }
+}
+
+class Pinguim implements Aves
+{
+    public function setLocalizacao($longitude, $latitude)
+    {
+        //Faz alguma coisa
+    }
+    
+    // A Interface Aves está forçando a Classe Pinguim a implementar esse método.
+    // Isso viola o príncipio ISP
+    public function setAltitude($altitude)
+    {
+        //Não faz nada...  Pinguins são aves que não voam!
+    }
+    
+    public function renderizar()
+    {
+        //Faz alguma coisa
+    }
+}
+```
+Percebam que ao criar a interface Aves, atribuímos comportamentos genéricos e isso acabou forçando a classe Pinguim a implementar o método setAltitude()do qual ela não deveria ter, pois pinguins não voam! Dessa forma, estamos violando o Interface Segregation Principle — E o LSP também!
+Para resolver esse problema, devemos criar interfaces mais específicas, veja:
+```
+<?php
+
+interface Aves
+{
+    public function setLocalizacao($longitude, $latitude);
+    public function renderizar();
+}
+
+interface AvesQueVoam extends Aves
+{
+    public function setAltitude($altitude);
+}
+
+class Papagaio implements AvesQueVoam
+{
+    public function setLocalizacao($longitude, $latitude)
+    {
+        //Faz alguma coisa
+    }
+    
+    public function setAltitude($altitude)
+    {
+        //Faz alguma coisa   
+    }
+    
+    public function renderizar()
+    {
+        //Faz alguma coisa
+    }
+}
+
+class Pinguim implements Aves
+{
+    public function setLocalizacao($longitude, $latitude)
+    {
+        //Faz alguma coisa
+    }
+    
+    public function renderizar()
+    {
+        //Faz alguma coisa
+    }
+}
+```
+No exemplo acima, retiramos o método setAltitude() da interface Aves e adicionamos em uma interface derivada AvesQueVoam. Isso nos permitiu isolar os comportamentos das aves de maneira correta dentro do jogo, respeitando o princípio da segregação das interfaces.
