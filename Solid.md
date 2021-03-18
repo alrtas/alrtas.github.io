@@ -150,4 +150,45 @@ class FolhaDePagamento
 }
 ```
 
-Open-Closed Principle também é base para o padrão de projeto Strategy — Falerei desse padrão em um próximo artigo. Particularmente esse é o princípio que eu mais admiro, a sua principal vantagem é a facilidade na adição de novos requisitos, diminuindo as chances de introduzir novos bugs — ou bugs de menor expressão — pois o novo comportamento fica isolado, e o que estava funcionando provavelmente continuara funcionando.
+Open-Closed Principle também é base para o padrão de projeto Strategy a sua principal vantagem é a facilidade na adição de novos requisitos, diminuindo as chances de introduzir novos bugs — ou bugs de menor expressão — pois o novo comportamento fica isolado, e o que estava funcionando provavelmente continuara funcionando.
+
+
+
+
+
+
+# Liskov Substitution Principle (Princípio da substituição de Liskov)
+
+*** Uma classe derivada deve ser substituível por sua classe base.****
+
+se S é um subtipo de T, então os objetos do tipo T, em um programa, podem ser substituídos pelos objetos de tipo S sem que seja necessário alterar as propriedades deste programa. 
+```
+<?php
+
+class A 
+{
+    public function getNome()
+    {
+        echo 'Meu nome é A';
+    }
+}
+
+class B extends A 
+{ 
+    public function getNome()
+    {
+        echo 'Meu nome é B';
+    }
+}
+
+$objeto1 = new A;
+$objeto2 = new B;
+
+function imprimeNome(A $objeto)
+{
+    return $objeto->getNome();
+}
+
+imprimeNome($objeto1); // Meu nome é A
+imprimeNome($objeto2); // Meu nome é B
+```
